@@ -8,6 +8,11 @@ variable "tfe_organization" {
   description = "Terraform Cloud organization"
 }
 
+variable "tfe_project" {
+  type        = string
+  description = "Terraform Cloud project"
+}
+
 variable "oauth_token_id" {
   type      = string
   sensitive = true

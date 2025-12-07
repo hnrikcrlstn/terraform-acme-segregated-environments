@@ -10,6 +10,7 @@ terraform {
 resource "tfe_workspace" "this" {
   name         = var.workspace_settings.name
   organization = var.tfe_organization
+  project_id      = var.tfe_project
 
   vcs_repo {
     identifier     = var.workspace_settings.vcs_repo.identifier

@@ -2,6 +2,7 @@ variable "workspaces_to_deploy" {
   type = map(object({
     github_organization = string
     tfe_organization    = string
+    tfe_project         = string
     workspace_settings = object({
       name                           = string
       auto_destroy_activity_duration = optional(string)
