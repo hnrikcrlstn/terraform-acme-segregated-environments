@@ -4,10 +4,6 @@ variable "workspaces_to_deploy" {
     tfe_organization    = string
     workspace_settings = object({
       name                           = string
-      ec2_instance_type              = string
-      ec2_instance_name              = string
-      environment                    = string
-      gcp_project_id                 = string
       auto_destroy_activity_duration = optional(string)
       vcs_repo = object({
         branch     = string
