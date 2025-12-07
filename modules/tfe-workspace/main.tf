@@ -18,3 +18,14 @@ resource "tfe_workspace" "this" {
   }
 
 }
+
+resource "tfe_variable" "terraform_vars" {
+  for_each = var.terraform_vars
+
+  key          = each.key
+  value        = each.value
+  category     = "terraform"
+  workspace_id = tfe_workspace.this.id
+  hcl          = false
+  sensitive    = false
+}

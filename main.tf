@@ -24,4 +24,5 @@ module "workspace" {
   oauth_token_id      = var.oauth_token_id
 
   workspace_settings = each.value.workspace_settings
+  terraform_vars     = try(each.value.terraform_vars, {})
 }

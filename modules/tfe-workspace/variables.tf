@@ -35,3 +35,9 @@ variable "workspace_settings" {
     }))
   })
 }
+
+variable "terraform_vars" {
+  type        = map(string)
+  default     = {}
+  description = "Variables to create inside the new workspace"
+}
