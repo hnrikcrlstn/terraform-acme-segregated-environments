@@ -6,13 +6,6 @@ terraform {
       version = "~> 0.71.0"
     }
   }
-  cloud {
-
-    organization = "ACME-Segregated-Environments"
-    workspaces {
-      name = "acme-resource-manager"
-    }
-  }
 }
 
 module "workspace" {
