@@ -1,41 +1,19 @@
-terraform { 
-  cloud { 
-    
-    organization = "Terraform-ACME-case" 
+terraform {
+  cloud {
 
-    workspaces { 
-      name = "terraform-acme-dev" 
-    } 
-  } 
-}
-
-data "aws_ami" "ubuntu" {
-  most_recent = true
-
-  filter {
-    name   = "name"
-    values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*"]
+    organization = "ACME-Segregated-Environments"
+    workspaces {
+      name = "acme-resource-manager"
+    }
   }
 
-  owners = ["099720109477"] # Canonical
 }
+module "workspace" {
+  for_each = var.workspaces_to_deploy
+  source   = "./modules/tfe-workspace"
 
-module "ec2-instance" {
-  source            = "./modules/ec2"
-  ec2_instance_name = "acme-demo-${random_id.suffix.hex}-ec2"
-  ec2_instance_type = var.default_ec2_instance_type
-}
-
-module "bucket" {
-  source      = "./modules/bucket"
-  bucket_name = "acme-demo-${random_id.suffix.hex}-bucket"
-}
-
-resource "random_id" "suffix" {
-  byte_length = 4
-}
-
-module "gcloud-db" {
-  source = "./modules/gcloud-db"
-  project = var.google_project_id
+  github_organization = each.value.github_organization
+  tfe_organization    = each.value.tfe_organization
+  workspace_settings  = each.value.workspace_settings
+  oauth_token_id = var.oauth_token_id
 }

@@ -1,4 +1,4 @@
-resource "google_firestore_database" "default" {
+resource "google_firestore_database" "this" {
   project     = var.project
   name        = "(default)"
   location_id = "europe-north1"

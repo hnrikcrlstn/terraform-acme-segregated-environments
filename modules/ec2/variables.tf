@@ -3,7 +3,7 @@ variable "ec2_instance_name" {
   description = "Ec2 Instance Name"
 }
 
-variable "ec2_instance_type" {
+variable "default_ec2_instance_type" {
   type        = string
   description = "Instance type for EC"
 }
