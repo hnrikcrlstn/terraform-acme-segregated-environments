@@ -52,13 +52,12 @@ variable "terraform_vars" {
   description = "Variables to create inside the new workspace"
 }
 
-
 variable "tfc_token" {
-  type        = string
-  sensitive   = true
+  type      = string
+  sensitive = true
 }
 
 variable "tfc_hostname" {
-  type        = string
-  default     = "app.terraform.io"
+  type    = string
+  default = "app.terraform.io"
 }
