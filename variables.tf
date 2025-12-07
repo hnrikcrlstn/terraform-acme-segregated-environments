@@ -4,11 +4,26 @@ variable "workspaces_to_deploy" {
     tfe_organization    = string
     workspace_settings = object({
       name                           = string
+      ec2_instance_type              = string
+      ec2_instance_name              = string
+      environment                    = string
       auto_destroy_activity_duration = optional(string)
       vcs_repo = object({
         branch     = string
         identifier = string
       })
+      apply = optional(object({
+        manual_confirm    = optional(bool)
+        wait_for_run      = optional(bool)
+        retry_attempts    = optional(number)
+        retry_backoff_min = optional(number)
+      }))
+      destroy = optional(object({
+        manual_confirm    = optional(bool)
+        wait_for_run      = optional(bool)
+        retry_attempts    = optional(number)
+        retry_backoff_min = optional(number)
+      }))
     })
   }))
 }
