@@ -22,7 +22,7 @@ variable "workspaces_to_deploy" {
         retry_backoff_min = optional(number)
       }))
     })
-    terraform_vars = optional(map(string))
+    terraform_vars = optional(map(string), {})
   }))
 }
 
