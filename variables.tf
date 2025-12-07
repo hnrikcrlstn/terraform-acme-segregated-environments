@@ -31,3 +31,13 @@ variable "workspaces_to_deploy" {
 variable "oauth_token_id" {
   type = string
 }
+
+variable "tfc_token" {
+  type        = string
+  sensitive   = true
+}
+
+variable "tfc_hostname" {
+  type        = string
+  default     = "app.terraform.io"
+}
