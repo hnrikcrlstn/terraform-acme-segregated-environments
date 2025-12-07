@@ -24,6 +24,7 @@ variable "workspaces_to_deploy" {
       }))
     })
     terraform_vars = optional(map(string), {})
+    force_delete   = optional(bool)
   }))
 }
 

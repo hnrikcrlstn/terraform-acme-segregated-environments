@@ -16,6 +16,7 @@ module "workspace" {
   tfe_organization    = each.value.tfe_organization
   tfe_project         = each.value.tfe_project
   oauth_token_id      = var.oauth_token_id
+  force_delete        = each.value.force_delete
 
   workspace_settings = each.value.workspace_settings
   terraform_vars     = try(each.value.terraform_vars, {})
