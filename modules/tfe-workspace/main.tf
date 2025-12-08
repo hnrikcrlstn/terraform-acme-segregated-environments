@@ -7,7 +7,7 @@ terraform {
   }
 }
 
-resource "tfe_workspace" "workspace" {
+resource "tfe_workspace" "this" {
   name         = var.workspace_settings.name
   organization = var.tfe_organization
   project_id   = var.tfe_project
@@ -31,7 +31,7 @@ resource "tfe_variable" "terraform_vars" {
   key          = each.key
   value        = each.value
   category     = "terraform"
-  workspace_id = tfe_workspace.workspace.id
+  workspace_id = tfe_workspace.this.id
   hcl          = false
   sensitive    = false
 }

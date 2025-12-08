@@ -31,3 +31,8 @@ variable "workspaces_to_deploy" {
 variable "oauth_token_id" {
   type = string
 }
+
+variable "delete_workspace" {
+  type    = bool
+  default = false
+}
