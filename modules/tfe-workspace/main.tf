@@ -21,8 +21,6 @@ resource "tfe_workspace" "this" {
     branch         = var.workspace_settings.vcs_repo.branch
     oauth_token_id = var.oauth_token_id
   }
-
-  force_delete = var.force_delete
 }
 
 resource "tfe_variable" "terraform_vars" {

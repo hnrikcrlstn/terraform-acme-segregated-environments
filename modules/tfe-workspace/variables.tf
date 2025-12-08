@@ -18,11 +18,6 @@ variable "oauth_token_id" {
   sensitive = true
 }
 
-variable "force_delete" {
-  type    = bool
-  default = true
-}
-
 variable "workspace_settings" {
   type = object({
     name                           = string
