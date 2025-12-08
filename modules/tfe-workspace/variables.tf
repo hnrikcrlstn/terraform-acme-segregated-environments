@@ -26,18 +26,6 @@ variable "workspace_settings" {
       branch     = string
       identifier = string
     })
-    apply = optional(object({
-      manual_confirm    = optional(bool)
-      wait_for_run      = optional(bool)
-      retry_attempts    = optional(number)
-      retry_backoff_min = optional(number)
-    }))
-    destroy = optional(object({
-      manual_confirm    = optional(bool)
-      wait_for_run      = optional(bool)
-      retry_attempts    = optional(number)
-      retry_backoff_min = optional(number)
-    }))
   })
 }
 
