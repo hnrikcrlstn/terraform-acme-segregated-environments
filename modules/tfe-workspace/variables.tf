@@ -8,6 +8,11 @@ variable "tfe_organization" {
   description = "Terraform Cloud organization"
 }
 
+variable "tfe_project" {
+  type        = string
+  description = "Terraform Cloud project"
+}
+
 variable "oauth_token_id" {
   type      = string
   sensitive = true
@@ -21,18 +26,6 @@ variable "workspace_settings" {
       branch     = string
       identifier = string
     })
-    apply = optional(object({
-      manual_confirm    = optional(bool)
-      wait_for_run      = optional(bool)
-      retry_attempts    = optional(number)
-      retry_backoff_min = optional(number)
-    }))
-    destroy = optional(object({
-      manual_confirm    = optional(bool)
-      wait_for_run      = optional(bool)
-      retry_attempts    = optional(number)
-      retry_backoff_min = optional(number)
-    }))
   })
 }
 

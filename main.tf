@@ -6,13 +6,6 @@ terraform {
       version = "~> 0.71.0"
     }
   }
-  cloud {
-
-    organization = "ACME-Segregated-Environments"
-    workspaces {
-      name = "acme-resource-manager"
-    }
-  }
 }
 
 module "workspace" {
@@ -21,6 +14,7 @@ module "workspace" {
 
   github_organization = each.value.github_organization
   tfe_organization    = each.value.tfe_organization
+  tfe_project         = each.value.tfe_project
   oauth_token_id      = var.oauth_token_id
 
   workspace_settings = each.value.workspace_settings
